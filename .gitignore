@@ -4,4 +4,4 @@ build/
 screenshots/
 target/
 .idea/
-test-shots.iml
+*.iml
