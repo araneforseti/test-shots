@@ -5,10 +5,9 @@ repositories {
 }
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.12'
+    
     compile 'org.seleniumhq.selenium:selenium-java:2.48.2'
-    testCompile 'org.jboss.arquillian.extension:arquillian-phantom-driver:1.1.4.Final'
-    testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
 }
 
 configurations {

@@ -1,3 +1,5 @@
+package com.forseti;
+
 import org.apache.commons.io.FileUtils;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;

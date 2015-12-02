@@ -6,5 +6,6 @@ Requires:
 - Webdriver
 
 To use, add to the test class you want capable of taking screenshots:
+import com.forseti.ScreenshotWatcher;
  @Rule
  public TestRule testWatcher = new ScreenshotWatcher(driver);
