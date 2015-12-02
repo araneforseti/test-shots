@@ -3,3 +3,5 @@
 build/
 screenshots/
 target/
+.idea/
+exampleTests.iml
