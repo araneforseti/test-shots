@@ -17,17 +17,17 @@ public class ScreenshotWatcher extends TestWatcher {
 
     @Override
     public void failed(Throwable t, Description test) {
-        takeScreenshot(test.getClassName() + "_" + test.getMethodName());
+        try {
+            takeScreenshot(test.getClassName() + "_" + test.getMethodName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void takeScreenshot(String screenshotName) {
+    public void takeScreenshot(String screenshotName) throws IOException {
         if (driver instanceof TakesScreenshot) {
             File tempFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            try {
-                FileUtils.copyFile(tempFile, new File("screenshots/" + screenshotName + ".png"));
-            } catch (IOException e) {
-                // TODO handle exception
-            }
+            FileUtils.copyFile(tempFile, new File("screenshots/" + screenshotName + ".png"));
         }
     }
 }
