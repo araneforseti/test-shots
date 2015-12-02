@@ -30,21 +30,5 @@ public class SeleniumBase {
     }
 
     @Rule
-    public TestRule testWatcher = new TestWatcher() {
-        @Override
-        public void failed(Throwable t, Description test) {
-            takeScreenshot(test.getClassName() + "_" + test.getMethodName());
-        }
-
-        public void takeScreenshot(String screenshotName) {
-            if (driver instanceof TakesScreenshot) {
-                File tempFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-                try {
-                    FileUtils.copyFile(tempFile, new File("screenshots/" + screenshotName + ".png"));
-                } catch (IOException e) {
-                    // TODO handle exception
-                }
-            }
-        }
-    };
+    public TestRule testWatcher = new ScreenshotWatcher(driver);
 }
